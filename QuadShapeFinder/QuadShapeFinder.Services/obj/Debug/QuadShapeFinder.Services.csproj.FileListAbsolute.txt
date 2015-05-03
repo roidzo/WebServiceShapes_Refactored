@@ -1,0 +1,13 @@
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\obj\Debug\QuadShapeFinder.Services.csprojResolveAssemblyReference.cache
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\bin\Debug\QuadShapeFinder.Services.dll
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\bin\Debug\QuadShapeFinder.Services.pdb
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\bin\Debug\Autofac.dll
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\bin\Debug\Serilog.dll
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\bin\Debug\Serilog.FullNetFx.dll
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\bin\Debug\Autofac.xml
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\bin\Debug\Serilog.pdb
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\bin\Debug\Serilog.xml
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\bin\Debug\Serilog.FullNetFx.pdb
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\bin\Debug\Serilog.FullNetFx.xml
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\obj\Debug\QuadShapeFinder.Services.dll
+c:\users\dre\documents\visual studio 2013\Projects\QuadShapeFinder\QuadShapeFinder.Services\obj\Debug\QuadShapeFinder.Services.pdb
