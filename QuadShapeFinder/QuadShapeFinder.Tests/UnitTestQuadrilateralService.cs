@@ -15,33 +15,38 @@ namespace QuadShapeFinder.Tests
     [TestClass]
     public class UnitTestQuadrilateralService
     {
-        private Mock<IIdentifyQuadrilateral> _mockWebService;
+        //private Mock<IIdentifyQuadrilateral> _mockWebService;
         private Mock<IQuadrilateralShapeService> _mockService;
-        private Mock<ILogger> _logger;
+        private Mock<ILogger> _mockLogger;
         private IIdentifyQuadrilateral _webService;
+        private Mock<QuadrilateralIdentifier> _mockQuadrilateralIdentifier;
+        private Mock<IQuadrilateral> _mockQuadrilateral;
 
         [TestInitialize]
         public void StartUp()
         {
             _mockService = new Mock<IQuadrilateralShapeService>();
-            _logger = new Mock<ILogger>();
+            _mockLogger = new Mock<ILogger>();
 
-            _webService = new IdentifyQuadrilateral(_logger.Object, _mockService.Object);
+            _webService = new IdentifyQuadrilateral(_mockLogger.Object, _mockService.Object);
+            _mockQuadrilateralIdentifier = new Mock<QuadrilateralIdentifier>();
+            _mockQuadrilateral = new Mock<IQuadrilateral>();
         }
 
         [TestMethod]
         public void TestGetQuadrilateralTypeService()
         {
             //Arrange
-            //_quadrilateralTypeService.Setup(m => m.GetQuadrilateralType(It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>())).Returns(Helper.GetEnumDescription(QuadrilateralTypeEnum.Parallelogram));
-            //_quadrilateralService.Setup(m => m.GetQuadrilateralType(It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>(),It.IsAny<int>())).Returns(QuadrilateralTypeEnum.Parallelogram);
+            //_mockQuadrilateralIdentifier.Setup(m => m.GetQuadrilateralType(_mockQuadrilateral.Object)).Returns(QuadTypeEnum.IsoscelesTrapezoid);
+            _mockQuadrilateralIdentifier.Setup(m => m.GetQuadrilateralType(_mockQuadrilateral.Object)).Returns(QuadTypeEnum.IsoscelesTrapezoid);
+            //_mockQuadrilateral.Setup(m => m.GetQuadrilateralType(_mockQuadrilateral.Object)).Returns(QuadTypeEnum.IsoscelesTrapezoid);
 
             //Act
-            var quadFinderService = new QuadrilateralShapeService(_logger.Object);
-            var result = quadFinderService.GetQuadrilateralType(1, 1, 1, 1, 2, 2, 2, 2);
+            var quadFinderService = new QuadrilateralShapeService(_mockLogger.Object, _mockQuadrilateralIdentifier.Object);
+            var result = quadFinderService.GetQuadrilateralType(1, 1, 1, 1, 90, 90, 90, 90);
 
             //Assert
-            Assert.AreEqual(result, QuadTypeEnum.IsoscelesTrapezoid);
+            Assert.AreEqual(result, EnumHelper.GetEnumDescription(QuadTypeEnum.IsoscelesTrapezoid));
         }
     }
 }

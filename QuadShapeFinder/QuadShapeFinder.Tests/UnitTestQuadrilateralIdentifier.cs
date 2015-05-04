@@ -11,16 +11,18 @@ namespace QuadShapeFinder.Tests
     [TestClass]
     public class UnitTestQuadrilateralIdentifier
     {
-        private Mock<IQuadrilateral> _quadrilateral;
-        private Mock<ILogger> _logger;
+        private Mock<IQuadrilateral> _mockQuadrilateral;
+        private Mock<ILogger> _mockLogger;
         private QuadrilateralBuilder _quadBuilder;
+        private IQuadrilateralIdentifier _quadIdentifier;
 
         [TestInitialize]
         public void StartUp()
         {
-            _quadrilateral = new Mock<IQuadrilateral>();
-            _logger = new Mock<ILogger>();
+            _mockQuadrilateral = new Mock<IQuadrilateral>();
+            _mockLogger = new Mock<ILogger>();
             _quadBuilder = new QuadrilateralBuilder();
+            _quadIdentifier = new QuadrilateralIdentifier(_mockLogger.Object);
         }
 
 
@@ -51,8 +53,7 @@ namespace QuadShapeFinder.Tests
             var quad = _quadBuilder.Build(QuadTypeEnum.Square);
 
             //Act
-            var quadIdentifier = new QuadrilateralIdentifier(quad);
-            var result = quadIdentifier.GetQuadrilateralType();
+            var result = _quadIdentifier.GetQuadrilateralType(quad);
 
             //Assert
             Assert.AreEqual(result, QuadTypeEnum.Square);
@@ -65,8 +66,7 @@ namespace QuadShapeFinder.Tests
             var quad = _quadBuilder.Build(QuadTypeEnum.Quadrilateral);
 
             //Act
-            var quadIdentifier = new QuadrilateralIdentifier(quad);
-            var result = quadIdentifier.GetQuadrilateralType();
+            var result = _quadIdentifier.GetQuadrilateralType(quad);
 
             //Assert
             Assert.AreEqual(result, QuadTypeEnum.Quadrilateral);
@@ -80,8 +80,7 @@ namespace QuadShapeFinder.Tests
             var quad = _quadBuilder.Build(QuadTypeEnum.Parallelogram);
 
             //Act
-            var quadIdentifier = new QuadrilateralIdentifier(quad);
-            var result = quadIdentifier.GetQuadrilateralType();
+            var result = _quadIdentifier.GetQuadrilateralType(quad);
 
             //Assert
             Assert.AreEqual(result, QuadTypeEnum.Parallelogram);
@@ -95,8 +94,7 @@ namespace QuadShapeFinder.Tests
             var quad = _quadBuilder.Build(QuadTypeEnum.Trapezoid);
 
             //Act
-            var quadIdentifier = new QuadrilateralIdentifier(quad);
-            var result = quadIdentifier.GetQuadrilateralType();
+            var result = _quadIdentifier.GetQuadrilateralType(quad);
 
             //Assert
             Assert.AreEqual(result, QuadTypeEnum.Trapezoid);
@@ -110,8 +108,7 @@ namespace QuadShapeFinder.Tests
             var quad = _quadBuilder.Build(QuadTypeEnum.IsoscelesTrapezoid);
 
             //Act
-            var quadIdentifier = new QuadrilateralIdentifier(quad);
-            var result = quadIdentifier.GetQuadrilateralType();
+            var result = _quadIdentifier.GetQuadrilateralType(quad);
 
             //Assert
             Assert.AreEqual(result, QuadTypeEnum.IsoscelesTrapezoid);
@@ -124,8 +121,7 @@ namespace QuadShapeFinder.Tests
             var quad = _quadBuilder.Build(QuadTypeEnum.Rectangle);
 
             //Act
-            var quadIdentifier = new QuadrilateralIdentifier(quad);
-            var result = quadIdentifier.GetQuadrilateralType();
+            var result = _quadIdentifier.GetQuadrilateralType(quad);
 
             //Assert
             Assert.AreEqual(result, QuadTypeEnum.Rectangle);
@@ -139,8 +135,7 @@ namespace QuadShapeFinder.Tests
             var quad = _quadBuilder.Build(QuadTypeEnum.Rhombus);
 
             //Act
-            var quadIdentifier = new QuadrilateralIdentifier(quad);
-            var result = quadIdentifier.GetQuadrilateralType();
+            var result = _quadIdentifier.GetQuadrilateralType(quad);
 
             //Assert
             Assert.AreEqual(result, QuadTypeEnum.Rhombus);
@@ -154,8 +149,7 @@ namespace QuadShapeFinder.Tests
             var quad = _quadBuilder.Build(QuadTypeEnum.Kite);
 
             //Act
-            var quadIdentifier = new QuadrilateralIdentifier(quad);
-            var result = quadIdentifier.GetQuadrilateralType();
+            var result = _quadIdentifier.GetQuadrilateralType(quad);
 
             //Assert
             Assert.AreEqual(result, QuadTypeEnum.Kite);

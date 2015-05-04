@@ -12,17 +12,19 @@ namespace QuadShapeFinder.Services.BusinessLogic
     public class QuadrilateralIdentifier : IQuadrilateralIdentifier
     {
         private readonly ILogger _logger;
-        private readonly IQuadrilateral _quadrilateral;
+        private IQuadrilateral _quadrilateral;
 
 
-        public QuadrilateralIdentifier(IQuadrilateral quadrilateral)
+        public QuadrilateralIdentifier(ILogger logger)
         {
-            _quadrilateral = quadrilateral;
+            _logger = logger;
         }
 
 
-        public QuadTypeEnum GetQuadrilateralType()
+        public virtual QuadTypeEnum GetQuadrilateralType(IQuadrilateral quadrilateral)
         {
+            _quadrilateral = quadrilateral;
+
             int numberOfPairsOfCongruentAngles = NumberOfPairsOfCongruentAngles();
             int numberOfPairsOfCongruentSides = NumberOfPairsOfCongruentSides();
             int numberOfPairsOfCongruentOppositeSides = NumberOfPairsOfCongruentOppositeSides();

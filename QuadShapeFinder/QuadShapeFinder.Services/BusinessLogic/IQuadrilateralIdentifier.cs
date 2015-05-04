@@ -9,6 +9,6 @@ namespace QuadShapeFinder.Services.BusinessLogic
 {
     public interface IQuadrilateralIdentifier
     {
-        QuadTypeEnum GetQuadrilateralType();
+        QuadTypeEnum GetQuadrilateralType(IQuadrilateral quadrilateral);
     }
 }

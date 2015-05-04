@@ -6,6 +6,7 @@ using QuadShapeFinder.WebService;
 using QuadShapeFinder.Services.Helpers;
 using QuadShapeFinder.Services;
 using QuadShapeFinder.Services.BusinessLogic.Enums;
+using QuadShapeFinder.Services.BusinessLogic;
 
 namespace QuadShapeFinder.Tests
 {
@@ -13,13 +14,15 @@ namespace QuadShapeFinder.Tests
     public class UnitTestEndToEnd
     {
         private Mock<ILogger> _logger;
-        private QuadShapeFinder.WebService.IIdentifyQuadrilateral _webService;
+        private IIdentifyQuadrilateral _webService;
+        private IQuadrilateralIdentifier _quadrilateralIdentifier;
 
         [TestInitialize]
         public void StartUp()
         {
             _logger = new Mock<ILogger>();
-            _webService = new IdentifyQuadrilateral(_logger.Object, new QuadrilateralShapeService(_logger.Object));
+            _quadrilateralIdentifier = new QuadrilateralIdentifier(_logger.Object);
+            _webService = new IdentifyQuadrilateral(_logger.Object, new QuadrilateralShapeService(_logger.Object, _quadrilateralIdentifier));
         }
 
 
