@@ -12,6 +12,6 @@ namespace QuadShapeFinder.WebService
     public interface IIdentifyQuadrilateral
     {
         [OperationContract]
-        string GetQuadrilateralType(int sideA, int sideB, int sideC, int sideD, int angleAB, int angleBC, int angleCD, int angleDA);
+        string GetQuadrilateralType(double sideA, double sideB, double sideC, double sideD, int angleAB, int angleBC, int angleCD, int angleDA);
     }
 }

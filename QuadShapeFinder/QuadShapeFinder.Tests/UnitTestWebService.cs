@@ -14,7 +14,6 @@ namespace QuadShapeFinder.Tests
     [TestClass]
     public class UnitTestWebService
     {
-        private Mock<IIdentifyQuadrilateral> _mockWebService;
         private Mock<IQuadrilateralShapeService> _mockService;
         private Mock<ILogger> _logger;
         private IIdentifyQuadrilateral _webService;
@@ -32,7 +31,7 @@ namespace QuadShapeFinder.Tests
         public void TestWcfServiceImplementation1()
         {
             //Arrange
-            _mockService.Setup(m => m.GetQuadrilateralType(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>())).Returns(QuadTypeEnum.Parallelogram);
+            _mockService.Setup(m => m.GetQuadrilateralType(It.IsAny<double>(), It.IsAny<double>(), It.IsAny<double>(), It.IsAny<double>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>())).Returns(QuadTypeEnum.Parallelogram);
 
             //Act
             var result = _webService.GetQuadrilateralType(1, 1, 1, 1, 2, 2, 2, 2);

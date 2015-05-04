@@ -45,7 +45,7 @@ namespace QuadShapeFinder.Tests
 
         #region Test quadrilateral recognition
 
-
+      
         [TestMethod]
         public void TestQuadrilateralIdentifierValid_Sqaure()
         {

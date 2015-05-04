@@ -37,5 +37,29 @@ namespace QuadShapeFinder.Tests
             //Assert
             Assert.AreEqual(result, EnumHelper.GetEnumDescription(QuadTypeEnum.Parallelogram));
         }
+
+        [TestMethod]
+        public void TestEndToEndSquare()
+        {
+            //Arrange
+
+            //Act
+            var result = _webService.GetQuadrilateralType(20.4, 20.4, 20.4, 20.4, 90, 90, 90, 90);
+
+            //Assert
+            Assert.AreEqual(result, EnumHelper.GetEnumDescription(QuadTypeEnum.Square));
+        }
+
+        [TestMethod]
+        public void TestEndToEndTrapezoid()
+        {
+            //Arrange
+
+            //Act
+            var result = _webService.GetQuadrilateralType(10.4, 5.6, 10, 4, 90, 90, 30, 150);
+
+            //Assert
+            Assert.AreEqual(result, EnumHelper.GetEnumDescription(QuadTypeEnum.Trapezoid));
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace QuadShapeFinder.Services.Helpers
             }
             catch (Exception ex)
             {
-
+                
             }
 
             return description;

@@ -26,7 +26,7 @@ namespace QuadShapeFinder.WebService
         }
 
 
-        public string GetQuadrilateralType(int sideA, int sideB, int sideC, int sideD, int angleAB, int angleBC, int angleCD, int angleDA)
+        public string GetQuadrilateralType(double sideA, double sideB, double sideC, double sideD, int angleAB, int angleBC, int angleCD, int angleDA)
         {
             return EnumHelper.GetEnumDescription(_quadrilateralService.GetQuadrilateralType(sideA, sideB, sideC, sideD, angleAB, angleBC, angleCD, angleDA));
         }

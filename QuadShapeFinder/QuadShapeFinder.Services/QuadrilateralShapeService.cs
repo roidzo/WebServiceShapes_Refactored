@@ -34,7 +34,7 @@ namespace QuadShapeFinder.Services
             catch (Exception ex)
             {
                 _logger.Error(ex, "Error finding quadrilateral type.");
-                throw;
+                return QuadTypeEnum.UnknownOrInvalid;
             }
         }
 

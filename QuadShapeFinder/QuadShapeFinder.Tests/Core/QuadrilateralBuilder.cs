@@ -23,7 +23,7 @@ namespace QuadShapeFinder.Tests.Core
 
             switch (quadrilateralType)
             {
-                case QuadTypeEnum.Unknown:
+                case QuadTypeEnum.UnknownOrInvalid:
                     q = new Quadrilateral(11, 1, 1, 1, 190, 90, 90, 90); //TODO: Cannot create an unknown type without error.
                     break;
                 case QuadTypeEnum.Parallelogram:
@@ -69,7 +69,41 @@ namespace QuadShapeFinder.Tests.Core
         public IQuadrilateral BuildInvalidLength(QuadTypeEnum quadrilateralType)
         {
             IQuadrilateral q;
-            q = new Quadrilateral(1, 1, 1, 1, 90, 90, 90, 90);
+            
+            switch (quadrilateralType)
+            {
+                case QuadTypeEnum.UnknownOrInvalid:
+                    q = new Quadrilateral(11, 0, -11, 1, 190, 90, 90, 90); 
+                    break;
+                case QuadTypeEnum.Parallelogram:
+                    q = new Quadrilateral(2, 3, 3, 3, 45, 135, 45, 135);
+                    break;
+                case QuadTypeEnum.Rectangle:
+                    q = new Quadrilateral(4, 2, 5, 2, 90, 90, 90, 90);
+                    break;
+                case QuadTypeEnum.Rhombus:
+                    q = new Quadrilateral(2, 2, 3, 2, 45, 135, 45, 135);
+                    break;
+                case QuadTypeEnum.Square:
+                    q = new Quadrilateral(2, 2, 1, 2, 90, 90, 90, 90);
+                    break;
+                case QuadTypeEnum.Kite:
+                    q = new Quadrilateral(2, 1, 3, 3, 30, 140, 50, 140);
+                    break;
+                case QuadTypeEnum.Trapezoid:
+                    q = new Quadrilateral(4, 4, 4, 6, 120, 60, 90, 90);
+                    break;
+                case QuadTypeEnum.IsoscelesTrapezoid:
+                    q = new Quadrilateral(3.1, 3, 4, 3, 45, 135, 135, 45);
+                    break;
+                case QuadTypeEnum.Quadrilateral:
+                    q = new Quadrilateral(0, 4, 7, 5, 160, 30, 70, 100);
+                    break;
+                default:
+                    q = new Quadrilateral(0, 4, 7, 5, 160, 30, 70, 100);
+                    break;
+            }
+
             return q;
         }
 

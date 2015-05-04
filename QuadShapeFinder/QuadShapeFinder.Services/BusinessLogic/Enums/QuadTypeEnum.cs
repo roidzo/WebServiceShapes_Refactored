@@ -9,8 +9,8 @@ namespace QuadShapeFinder.Services.BusinessLogic.Enums
 {
     public enum QuadTypeEnum
     {
-        [Description("Unknown")]
-        Unknown = 0,
+        [Description("Unknown or Invalid")]
+        UnknownOrInvalid = 0,
 
         [Description("Parallelogram")]
         Parallelogram = 1,

@@ -19,7 +19,7 @@ namespace QuadShapeFinder.Tests
         private Mock<IQuadrilateralShapeService> _mockService;
         private Mock<ILogger> _mockLogger;
         private IIdentifyQuadrilateral _webService;
-        private Mock<QuadrilateralIdentifier> _mockQuadrilateralIdentifier;
+        private Mock<IQuadrilateralIdentifier> _mockQuadrilateralIdentifier;
         private Mock<IQuadrilateral> _mockQuadrilateral;
 
         [TestInitialize]
@@ -29,7 +29,7 @@ namespace QuadShapeFinder.Tests
             _mockLogger = new Mock<ILogger>();
 
             _webService = new IdentifyQuadrilateral(_mockLogger.Object, _mockService.Object);
-            _mockQuadrilateralIdentifier = new Mock<QuadrilateralIdentifier>();
+            _mockQuadrilateralIdentifier = new Mock<IQuadrilateralIdentifier>();
             _mockQuadrilateral = new Mock<IQuadrilateral>();
         }
 
@@ -37,16 +37,14 @@ namespace QuadShapeFinder.Tests
         public void TestGetQuadrilateralTypeService()
         {
             //Arrange
-            //_mockQuadrilateralIdentifier.Setup(m => m.GetQuadrilateralType(_mockQuadrilateral.Object)).Returns(QuadTypeEnum.IsoscelesTrapezoid);
-            _mockQuadrilateralIdentifier.Setup(m => m.GetQuadrilateralType(_mockQuadrilateral.Object)).Returns(QuadTypeEnum.IsoscelesTrapezoid);
-            //_mockQuadrilateral.Setup(m => m.GetQuadrilateralType(_mockQuadrilateral.Object)).Returns(QuadTypeEnum.IsoscelesTrapezoid);
+            _mockQuadrilateralIdentifier.Setup(m => m.GetQuadrilateralType(It.IsAny<Quadrilateral>())).Returns(QuadTypeEnum.IsoscelesTrapezoid);
 
             //Act
             var quadFinderService = new QuadrilateralShapeService(_mockLogger.Object, _mockQuadrilateralIdentifier.Object);
             var result = quadFinderService.GetQuadrilateralType(1, 1, 1, 1, 90, 90, 90, 90);
 
             //Assert
-            Assert.AreEqual(result, EnumHelper.GetEnumDescription(QuadTypeEnum.IsoscelesTrapezoid));
+            Assert.AreEqual(result, QuadTypeEnum.IsoscelesTrapezoid);
         }
     }
 }

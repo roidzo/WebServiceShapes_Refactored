@@ -42,7 +42,7 @@ namespace QuadShapeFinder.Services.BusinessLogic
                 throw new ArgumentException("Number of angles are not 4");
             }
 
-            if (Sides.Where(i => i.Value < 1).Count() > 0)
+            if (Sides.Where(i => i.Value <= 0).Count() > 0)
             {
                 throw new ArgumentOutOfRangeException("One or more sides have zero length");
             }
@@ -50,6 +50,11 @@ namespace QuadShapeFinder.Services.BusinessLogic
             if (Angles.Sum(i => i.Value) != 360)
             {
                 throw new ArgumentException("The sum of all angles is not 360");
+            }
+
+            if (Angles.Where(i => i.Value == 90).Count()==4 && ((Sides[QuadSideNamesEnum.A] != Sides[QuadSideNamesEnum.C]) || (Sides[QuadSideNamesEnum.B] != Sides[QuadSideNamesEnum.D])))
+            {
+                throw new ArgumentException("Angles are all 90 degrees but length of opposing sides differ");
             }
 
         }

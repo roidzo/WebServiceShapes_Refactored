@@ -38,9 +38,13 @@ namespace QuadShapeFinder.Services.BusinessLogic
                 {
                     return QuadTypeEnum.Quadrilateral;
                 }
+                else if(numberOfParallelSides==2)
+                {
+                    return QuadTypeEnum.Trapezoid;
+                } 
                 else
                 {
-                    return QuadTypeEnum.Unknown;
+                    return QuadTypeEnum.UnknownOrInvalid;
                 }
             }
             else if (allSidesCongruent)
@@ -55,7 +59,7 @@ namespace QuadShapeFinder.Services.BusinessLogic
                 }
                 else
                 {
-                    return QuadTypeEnum.Unknown;
+                    return QuadTypeEnum.UnknownOrInvalid;
                 }
             }
             else if (numberOfPairsOfCongruentSides > 1)
@@ -74,7 +78,7 @@ namespace QuadShapeFinder.Services.BusinessLogic
                 }
                 else
                 {
-                    return QuadTypeEnum.Unknown;
+                    return QuadTypeEnum.UnknownOrInvalid;
                 }
             }
 
